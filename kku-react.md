@@ -27,3 +27,63 @@ ReactDOM.render(
 );
 ```
 
+### Hello ...
+```js
+class App extends React.Component{
+    onInputNameChange(text, t){
+        var value = document.getElementById("name").value;
+        document.getElementById("welcomeText").innerHTML = "Hello " + value;
+    }
+
+    render(){
+        var name = React.createElement('input', { id: "name", "type":"text", onChange:this.onInputNameChange});
+        var welcomeText = React.createElement('div', { id: "welcomeText"}, `Hello ...`);
+        var div = React.createElement('div', null, [name, welcomeText])
+        return React.createElement('div', null, div);
+    }
+}
+
+ReactDOM.render(
+    React.createElement(App, null, null),
+    document.getElementById('root')
+);
+```
+
+### Hello with State
+```js
+class App extends React.Component{
+    constructor(){
+        super();
+        this.state = {}
+    }
+
+    onInputNameChange(){
+        var name = document.getElementById("name").value;
+        this.setState({guestName:name});
+    }
+
+    render(){
+        var name = React.createElement('input', { id: "name", key: "name", "type":"text", onChange:this.onInputNameChange.bind(this)});
+        var welcomeText = React.createElement(WelcomeText, { key: "welcomeText", guestName:this.state.guestName }, null);
+        return React.createElement('div', null, [welcomeText, name]);
+    }
+}
+
+class WelcomeText extends React.Component{    
+    render(){
+        if(this.props.guestName)
+            return React.createElement('div', { id:"welcomeText" }, `Hello ${this.props.guestName}`);
+        else
+            return "";
+        
+    }
+}
+
+ReactDOM.render(
+    React.createElement(App, null, null),
+    document.getElementById('root')
+);
+```
+
+### References
+https://reactjs.org/docs/cdn-links.html
