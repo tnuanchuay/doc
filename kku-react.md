@@ -38,8 +38,7 @@ class App extends React.Component{
     render(){
         var name = React.createElement('input', { id: "name", "type":"text", onChange:this.onInputNameChange});
         var welcomeText = React.createElement('div', { id: "welcomeText"}, `Hello ...`);
-        var div = React.createElement('div', null, [name, welcomeText])
-        return React.createElement('div', null, div);
+        return React.createElement('div', null, [name, welcomeText]);
     }
 }
 
