@@ -85,4 +85,5 @@ ReactDOM.render(
 ```
 
 ### References
-https://reactjs.org/docs/cdn-links.html
+- https://reactjs.org/docs/cdn-links.html
+- https://reactjs.org/docs/react-api.html
